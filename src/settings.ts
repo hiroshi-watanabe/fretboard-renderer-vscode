@@ -1,9 +1,7 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
 import * as vscode from "vscode";
-import { DEFAULT_SETTINGS } from "../../src/settings/settings";
-import { GLOBAL_CONFIG_PATH, parseVaultConfig } from "../../src/settings/vault-config";
-import type { FretboardPluginSettings } from "../../src/types";
+import { DEFAULT_SETTINGS, GLOBAL_CONFIG_PATH, parseVaultConfig, type FretboardPluginSettings } from "fretboard-renderer-core";
 
 /**
  * System layer: VSCode's own Settings UI (`contributes.configuration` in package.json,

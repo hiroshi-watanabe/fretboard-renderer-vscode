@@ -8,8 +8,7 @@
 	"license": "MIT",
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/hiroshi-watanabe/fretboard-renderer.git",
-		"directory": "vscode-extension"
+		"url": "git+https://github.com/hiroshi-watanabe/fretboard-renderer-vscode.git"
 	},
 	"engines": {
 		"vscode": "^1.74.0"
@@ -237,12 +236,14 @@
 		"package": "npm run build && vsce package",
 		"publish": "npm run build && vsce publish"
 	},
+	"dependencies": {
+		"fretboard-renderer-core": "^0.1.0"
+	},
 	"devDependencies": {
 		"@types/node": "^20.11.30",
 		"@types/vscode": "^1.74.0",
 		"@vscode/vsce": "^2.24.0",
 		"esbuild": "^0.20.2",
-		"obsidian": "^1.13.1",
 		"typescript": "^5.4.3"
 	}
 }

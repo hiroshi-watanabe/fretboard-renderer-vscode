@@ -1,9 +1,11 @@
-import { parseFretboardBlock } from "../../src/parser/parse";
-import { FretboardParseError } from "../../src/parser/errors";
-import { resolveFretboardModel } from "../../src/model/fretboard-model";
-import { buildFretboardSvg } from "../../src/render/render-fretboard";
-import { toSvgString } from "../../src/render/svg-builder";
-import type { FretboardPluginSettings } from "../../src/types";
+import {
+	parseFretboardBlock,
+	FretboardParseError,
+	resolveFretboardModel,
+	buildFretboardSvg,
+	toSvgString,
+	type FretboardPluginSettings,
+} from "fretboard-renderer-core";
 
 /**
  * Renders a ```fretboard fence's raw YAML source to an HTML string — the VSCode

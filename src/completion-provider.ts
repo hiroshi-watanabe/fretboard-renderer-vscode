@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { getFretboardCompletions } from "../../src/completion/context";
+import { getFretboardCompletions } from "fretboard-renderer-core";
 
 /**
  * Context-aware key/value autocomplete inside ```fretboard code blocks, sharing the

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.1
+
+Bumped `fretboard-renderer-core` to 0.2.0: fixes chord-tension naming (e.g. a slash chord's bass no longer double-counts as an upper-structure tension; `m7`/`maj7` tension folding now requires the full chain below the target degree, matching the dominant-7th branch).
+
 ## 0.2.0
 
 Added a VSCode Settings UI (`contributes.configuration`, namespaced `fretboardRenderer.*`) for the System settings layer — every field from the Obsidian plugin's settings tab is now configurable from VSCode's own Settings, no need to hand-edit `settings.json`. Workspace-wide `fretboard-renderer.yaml` still overrides it, same as before.

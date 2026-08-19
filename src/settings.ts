@@ -35,6 +35,7 @@ function loadSystemSettings(): FretboardPluginSettings {
 		chordSymbolStyle: key("chordSymbolStyle"),
 		omitNotation: key("omitNotation"),
 		showInversions: key("showInversions"),
+		rootNotation: key("rootNotation"),
 	};
 }
 

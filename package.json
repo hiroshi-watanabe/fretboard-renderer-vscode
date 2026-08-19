@@ -135,6 +135,19 @@
 					"default": false,
 					"description": "Show the slash-chord bass note when it's just an inversion — the chord's own 3rd, 5th, or 7th played as the lowest note (e.g. \"C/E\"). Off by default — real-world chord charts very often skip notating this. A bass note that isn't one of the chord's own tones (a true slash chord) is always shown regardless."
 				},
+				"fretboardRenderer.rootNotation": {
+					"type": "string",
+					"enum": [
+						"absolute",
+						"degree"
+					],
+					"enumDescriptions": [
+						"Real letter name (e.g. \"Bm7(b5)\"), or \"□\" in relative/movable mode",
+						"Roman-numeral scale degree relative to the diagram's `key` (e.g. \"VIIm7(b5)\" for key: C) — only takes effect when `key` is also set locally and the diagram is in absolute mode; otherwise falls back to Absolute"
+					],
+					"default": "absolute",
+					"description": "How an auto-generated title spells its root (and slash bass, if any): as a real letter name, or as a Roman-numeral scale degree relative to a per-diagram `key` (Local-only YAML field)."
+				},
 				"fretboardRenderer.defaultShape": {
 					"type": "string",
 					"enum": [
@@ -237,7 +250,7 @@
 		"publish": "npm run build && vsce publish"
 	},
 	"dependencies": {
-		"fretboard-renderer-core": "^0.2.0"
+		"fretboard-renderer-core": "^0.3.0"
 	},
 	"devDependencies": {
 		"@types/node": "^20.11.30",

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.4.0
+
+Bumped `fretboard-renderer-core` to 0.3.0: adds Degree Name root notation (`rootNotation`/`key`, Roman-numeral titles relative to a key), polygon/fill/color/rounded-corner support for `boxes`, `style`/`color` on `paths` (dashed, barre-weight `thick`), per-string `stringNotes` annotations outside the grid, and fixes `(omit1)`/`(omit3)`/`(omit5)` typography (no longer mistakenly rendered as raised/superscript).
+
 ## 0.3.1
 
 Bumped `fretboard-renderer-core` to 0.2.0: fixes chord-tension naming (e.g. a slash chord's bass no longer double-counts as an upper-structure tension; `m7`/`maj7` tension folding now requires the full chain below the target degree, matching the dominant-7th branch).

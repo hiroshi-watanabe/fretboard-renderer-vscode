@@ -2,7 +2,7 @@
 	"name": "fretboard-renderer-vscode",
 	"displayName": "Fretboard Renderer",
 	"description": "Render guitar fretboard diagrams from lightweight YAML in fenced ```fretboard code blocks, in VSCode's Markdown preview.",
-	"version": "0.3.1",
+	"version": "0.4.0",
 	"publisher": "hiroshi-watanabe",
 	"icon": "media/icon.png",
 	"license": "MIT",

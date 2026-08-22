@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.5.0
+
+Bumped `fretboard-renderer-core` to 0.4.0: adds note shapes `diamond`/`octagon`/`doublecircle` (◎)/`x`, note `opacity`, `paths[].arrow`/`curve` (arrowheads, smooth curves through 2+ points), `stringNotes[].side` (leading/trailing), a System `size` multiplier, and a Local `omittedStringBehavior` override. New Settings UI entries: `stringNoteDefaultShape`, `size`; `defaultShape`'s enum now includes the new shapes. Note: `fretboard-renderer-core` 0.4.0 also adds chord-progression sheets (`diagrams.progression`) — that feature isn't wired up for VSCode yet and shows a "not supported here yet" message if used.
+
 ## 0.4.0
 
 Bumped `fretboard-renderer-core` to 0.3.0: adds Degree Name root notation (`rootNotation`/`key`, Roman-numeral titles relative to a key), polygon/fill/color/rounded-corner support for `boxes`, `style`/`color` on `paths` (dashed, barre-weight `thick`), per-string `stringNotes` annotations outside the grid, and fixes `(omit1)`/`(omit3)`/`(omit5)` typography (no longer mistakenly rendered as raised/superscript).

@@ -21,13 +21,22 @@ export function renderFretboardFence(source: string, settings: FretboardPluginSe
 			const model = resolveFretboardModel(parsed.config, settings);
 			return `<div class="fretboard-block">${toSvgString(buildFretboardSvg(model))}</div>`;
 		}
-		// Mirrors renderFretboardRow in render-fretboard.ts: several diagrams side by side
-		// inside one flex row, laid out entirely by this extension's own CSS rather than
-		// relying on the Markdown preview's block wrapping.
-		const svgs = parsed.diagrams
-			.map((config) => toSvgString(buildFretboardSvg(resolveFretboardModel(config, settings))))
-			.join("");
-		return `<div class="fretboard-block"><div class="fretboard-row">${svgs}</div></div>`;
+		if (parsed.kind === "multi") {
+			// Mirrors renderFretboardRow in render-fretboard.ts: several diagrams side by side
+			// inside one flex row, laid out entirely by this extension's own CSS rather than
+			// relying on the Markdown preview's block wrapping.
+			const svgs = parsed.diagrams
+				.map((config) => toSvgString(buildFretboardSvg(resolveFretboardModel(config, settings))))
+				.join("");
+			return `<div class="fretboard-block"><div class="fretboard-row">${svgs}</div></div>`;
+		}
+		// `kind === "sheet"` — the chord-progression-sheet object form (CLAUDE.md §3.4,
+		// experimental) isn't wired up on the VSCode side yet (no sheet-rendering/header
+		// logic here, unlike Obsidian's renderFretboardSheet). Surface a clear, friendly
+		// message instead of a raw TypeError from missing fields on this branch.
+		throw new FretboardParseError(
+			"Chord progression sheets (diagrams.progression) aren't supported in the VSCode extension yet — try the Obsidian plugin, or use the plain `diagrams: [...]` array form instead."
+		);
 	} catch (e) {
 		const message = e instanceof FretboardParseError ? e.message : String(e);
 		return `<pre class="fretboard-error"><strong>Fretboard error: </strong><span>${escapeHtml(message)}</span></pre>`;

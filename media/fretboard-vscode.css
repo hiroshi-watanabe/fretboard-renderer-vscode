@@ -95,6 +95,10 @@
 	opacity: 0.55;
 }
 
+.fretboard-path-arrowhead {
+	fill: var(--vscode-descriptionForeground);
+}
+
 .fretboard-shape {
 	stroke: var(--vscode-editor-foreground);
 	stroke-width: 1.5;
@@ -136,6 +140,11 @@
 
 .fretboard-label.is-on-outlined {
 	fill: var(--vscode-editor-foreground);
+}
+
+.fretboard-label.is-on-outlined.fretboard-string-note-label {
+	fill: var(--vscode-descriptionForeground);
+	font-weight: 500;
 }
 
 .fretboard-label.is-virtual {

@@ -2,7 +2,7 @@
 	"name": "fretboard-renderer-vscode",
 	"displayName": "Fretboard Renderer",
 	"description": "Render guitar fretboard diagrams from lightweight YAML in fenced ```fretboard code blocks, in VSCode's Markdown preview.",
-	"version": "0.4.0",
+	"version": "0.5.0",
 	"publisher": "hiroshi-watanabe",
 	"icon": "media/icon.png",
 	"license": "MIT",
@@ -59,15 +59,21 @@
 				},
 				"fretboardRenderer.stringSpacing": {
 					"type": "number",
-					"default": 30,
+					"default": 24,
 					"minimum": 1,
 					"description": "String spacing (px)."
 				},
 				"fretboardRenderer.fretSpacing": {
 					"type": "number",
-					"default": 50,
+					"default": 40,
 					"minimum": 1,
 					"description": "Fret spacing (px)."
+				},
+				"fretboardRenderer.size": {
+					"type": "number",
+					"default": 1,
+					"minimum": 0.1,
+					"description": "Overall multiplier applied on top of the pixel values above (and Note size/Label font size below) for every diagram, e.g. 0.7 to shrink everything. A diagram's own Local \"size\" multiplies further on top of this rather than replacing it."
 				},
 				"fretboardRenderer.labelMode": {
 					"type": "string",
@@ -154,16 +160,49 @@
 						"circle",
 						"square",
 						"triangle",
+						"diamond",
+						"octagon",
+						"doublecircle",
+						"x",
 						"none"
 					],
 					"enumDescriptions": [
 						"Circle",
 						"Square",
 						"Triangle",
+						"Diamond",
+						"Octagon",
+						"Double circle (◎)",
+						"X",
 						"None"
 					],
 					"default": "circle",
 					"description": "\"None\" draws no outline — just the label on a borderless filled backdrop."
+				},
+				"fretboardRenderer.stringNoteDefaultShape": {
+					"type": "string",
+					"enum": [
+						"circle",
+						"square",
+						"triangle",
+						"diamond",
+						"octagon",
+						"doublecircle",
+						"x",
+						"none"
+					],
+					"enumDescriptions": [
+						"Circle",
+						"Square",
+						"Triangle",
+						"Diamond",
+						"Octagon",
+						"Double circle (◎)",
+						"X",
+						"None"
+					],
+					"default": "none",
+					"description": "Default shape for stringNotes entries, separate from \"Default shape\" above — a per-string annotation (e.g. a string number) usually reads better as plain text than a filled-in dot, so this defaults to \"None\". stringNotes labels are always drawn in a muted color, regardless of this setting."
 				},
 				"fretboardRenderer.fillStyle": {
 					"type": "string",
@@ -210,13 +249,13 @@
 				},
 				"fretboardRenderer.noteSize": {
 					"type": "number",
-					"default": 10,
+					"default": 9,
 					"minimum": 1,
 					"description": "Base radius of each note dot (px). Per-note `sizeAdjust` (-5..5) nudges from this."
 				},
 				"fretboardRenderer.labelFontSize": {
 					"type": "number",
-					"default": 10,
+					"default": 11,
 					"minimum": 1,
 					"description": "Base font size for note labels (px). Per-note `labelSizeAdjust` (-5..5) nudges from this."
 				},
@@ -250,7 +289,7 @@
 		"publish": "npm run build && vsce publish"
 	},
 	"dependencies": {
-		"fretboard-renderer-core": "^0.3.0"
+		"fretboard-renderer-core": "^0.4.0"
 	},
 	"devDependencies": {
 		"@types/node": "^20.11.30",
